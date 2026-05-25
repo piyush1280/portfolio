@@ -68,3 +68,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Deploying to Vercel
+
+- **Automatic deploy:** Connect this repository to Vercel and set the project root to the repository root. Vercel will run `npm run build` and publish the `build` directory.
+- **Custom config:** This project includes a `vercel.json` that uses the `@vercel/static-build` builder and routes all requests to `index.html` for client-side routing.
+- **Quick CLI deploy:** Install the Vercel CLI and run:
+
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
+
+If you want, I can add optimized favicon files and a `.vercelignore` to reduce deploy size.

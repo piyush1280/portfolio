@@ -1,38 +1,318 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+  scroll-behavior: smooth;
+}
+
+body{
+  background: black
+}
+
+/* Navbar */
+
+.navbar{
+  background: rgba(17,17,17,0.9);
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 15px 50px;
+
+  position: sticky;
+  top: 0;
+
+  z-index: 1000;
+
+  animation: slideDown 1s ease;
+}
+
+.logo{
+  font-size: 28px;
+  font-weight: bold;
+
+  transition: 0.3s;
+}
+
+.logo:hover{
+  color: #6dd5ed;
+  transform: scale(1.1);
+}
+
+.nav-links{
+  display: flex;
+  list-style: none;
+}
+
+.nav-links li{
+  margin-left: 20px;
+}
+
+.nav-links a{
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+
+  transition: 0.3s;
+  position: relative;
+}
+
+.nav-links a:hover{
+  color: #6dd5ed;
+}
+
+.nav-links a::after{
+  content: "";
+  position: absolute;
+
+  width: 0;
+  height: 2px;
+
+  left: 0;
+  bottom: -5px;
+
+  background: #6dd5ed;
+
+  transition: 0.4s;
+}
+
+.nav-links a:hover::after{
+  width: 100%;
+}
+
+/* Home */
+
+.home{
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+background-color: #0f0f0f;
+
+  color: white;
+
+  text-align: center;
+
+  animation: fadeIn 2s ease;
+}
+
+.home h1{
+  font-size: 60px;
+
+  animation: zoomIn 1.5s ease;
+}
+
+.home p{
+  font-size: 25px;
+  margin: 20px 0;
+
+  animation: fadeUp 2s ease;
+}
+
+.home button{
+  padding: 12px 25px;
+  border: none;
+
+  background: rgb(165, 53, 53);
+  color: white;
+
+  cursor: pointer;
+
+  border-radius: 30px;
+
+  transition: 0.4s;
+}
+
+.home button:hover{
+  background: white;
+  color: black;
+
+  transform: scale(1.1);
+}
+
+/* About */
+
+
+/* Projects */
+
+.projects{
+  padding: 80px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.projects h1{
+  font-size: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.project-container{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+
+  margin-top: 30px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.card{
+  background: white;
+  width: 250px;
+
+  padding: 25px;
+
+  border-radius: 15px;
+
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+
+  transition: 0.4s;
+
+  animation: fadeUp 1.5s ease;
+}
+
+.card:hover{
+  transform: translateY(-10px) scale(1.05);
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.card h2{
+  margin-bottom: 15px;
+}
+
+/* Contact */
+
+.contact{
+  padding: 80px;
+  text-align: center;
+}
+
+.contact h1{
+  font-size: 40px;
+  margin-bottom: 30px;
+}
+
+form{
+  width: 400px;
+  margin: auto;
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+form input,
+form textarea{
+  margin-bottom: 15px;
+  padding: 14px;
+
+  border: none;
+  border-radius: 8px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+form input:focus,
+form textarea:focus{
+  transform: scale(1.03);
+
+  box-shadow: 0 0 10px #2193b0;
+}
+
+form button{
+  padding: 14px;
+  border: none;
+
+  background: #2193b0;
   color: white;
+
+  cursor: pointer;
+
+  border-radius: 30px;
+
+  transition: 0.4s;
 }
 
-.App-link {
-  color: #61dafb;
+form button:hover{
+  background: black;
+
+  transform: scale(1.05);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Animations */
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
   }
-  to {
-    transform: rotate(360deg);
+
+  to{
+    opacity: 1;
   }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn{
+  from{
+    transform: scale(0.5);
+    opacity: 0;
+  }
+
+  to{
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown{
+  from{
+    transform: translateY(-100%);
+  }
+
+  to{
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .navbar{
+    flex-direction: column;
+  }
+
+  .nav-links{
+    margin-top: 10px;
+  }
+
+  .home h1{
+    font-size: 40px;
+  }
+
+  .home p{
+    font-size: 20px;
+  }
+
+  form{
+    width: 100%;
+  }
+
 }

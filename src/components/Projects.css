@@ -1,0 +1,155 @@
+.projects{
+  padding: 80px 50px;
+  text-align: center;
+
+  
+
+  min-height: 100vh;
+
+  animation: fadeIn 2s ease;
+}
+
+.projects h1{
+  font-size: 50px;
+  color: white;
+
+  margin-bottom: 50px;
+
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  animation: slideDown 1.5s ease;
+}
+
+/* Project Container */
+
+.project-container{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+/* Cards */
+
+.card{
+  width: 300px;
+  padding: 30px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(135deg, #00c6ff, #0072ff);
+
+  color: white;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
+  transition: 0.5s;
+
+  position: relative;
+  overflow: hidden;
+
+  animation: fadeUp 1.5s ease;
+}
+
+/* Glow Effect */
+
+.card::before{
+  content: "";
+
+  position: absolute;
+
+  width: 150%;
+  height: 150%;
+
+  background: rgba(255,255,255,0.2);
+
+  top: -120%;
+  left: -120%;
+
+  transform: rotate(45deg);
+
+  transition: 0.6s;
+}
+
+.card:hover::before{
+  top: 100%;
+  left: 100%;
+}
+
+/* Hover Animation */
+
+.card:hover{
+  transform: translateY(-15px) scale(1.05);
+
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.card h2{
+  margin-bottom: 20px;
+
+  font-size: 28px;
+
+  position: relative;
+  z-index: 1;
+}
+
+.card p{
+  font-size: 18px;
+  line-height: 1.6;
+
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations */
+
+@keyframes fadeIn{
+  from{
+    opacity: 0;
+  }
+
+  to{
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp{
+  from{
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown{
+  from{
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to{
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+  .projects h1{
+    font-size: 38px;
+  }
+
+  .card{
+    width: 100%;
+  }
+
+}
